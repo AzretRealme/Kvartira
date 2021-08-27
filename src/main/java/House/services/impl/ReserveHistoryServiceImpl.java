@@ -119,7 +119,7 @@ public class ReserveHistoryServiceImpl implements ReserveHistoryService {
             reserveHistoryDto = save(reserveHistoryDto);
             payHistoryDto.setReserveHistory(reserveHistoryDto);
             payHistoryDto = payHistoryService.save(payHistoryDto);
-            return reserveHistoryMapper.toOutputReserveHistory(reserveHistoryDto, cash);
+            return ReserveHistoryMapper.INSTANCE.toOutputReserveHistory(reserveHistoryDto, cash);
         }else {
             throw new RuntimeException("Уже оплачено");
         }

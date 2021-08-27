@@ -91,7 +91,7 @@ public class CodeServiceImpl implements CodeService {
                 .atZone(ZoneId.systemDefault())
                 .toLocalDateTime();
         long possibleSeconds = codeDto.getEndDate().until(todaysDate, ChronoUnit.SECONDS);
-        if(possibleSeconds < 1) {
+        if(possibleSeconds > 1) {
             if (code == trueCode) {
                 codeDto.setCodeStatus(CodeStatus.APPROVED);
                 requestDto.setSuccess(true);
